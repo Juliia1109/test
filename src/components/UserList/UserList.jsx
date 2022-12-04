@@ -1,11 +1,11 @@
 import PropTypes from "prop-types"
 import User from "components/User/User"
-export default function UserList({users}) {
+export default function UserList({ users, deleteUser }) {
     return (
         <ul>
             {users.map((user)=>
             (<li key = {user.id}>
-                <User user ={user}/>
+                <User deleteUser={deleteUser} user ={user}/>
                 </li>
                 ))}
         </ul>
@@ -20,3 +20,5 @@ UserList.propTypes = {
     
     ).isRequired,
 }
+
+

@@ -1,16 +1,24 @@
 import PropTypes from "prop-types"
-export default function User({ user: { name, email } }) {
- 
+import {Paragraph, Sponge} from './User.styled.js'
+
+export default function User({ user: { name, email, id }, deleteUser }) {
+ const isBiz = email.endsWith('biz')
+ console.log(isBiz)
      return (
         <>
-        <p>
-            name:<span>{name}</span>
-        </p>
-        <p>
-            email:<span>{email}</span>
-        </p>
+        <Paragraph >
+            name:<Sponge>{name}</Sponge>
+        </Paragraph>
+        <Paragraph >
+            email:<Sponge isRed = {isBiz}>{email}</Sponge>
+        </Paragraph>
+
+        <button type="button" onClick={() => deleteUser
+        (id)}>
+          delete
+        </button>
         </>
-    )
+    );
 }
 
 User.propTypes = {
@@ -21,3 +29,4 @@ User.propTypes = {
       }
     ).isRequired 
 }
+
